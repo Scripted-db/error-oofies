@@ -4,6 +4,7 @@
   "description": "Plays random sounds on any error, because i was bored.",
   "version": "1.0.1",
   "publisher": "ScriptedTS",
+  "repository": { "type": "git", "url": "https://github.com/ScriptedTS/error-oofies.git" },
   "engines": { "vscode": "^1.85.0" },
   "categories": ["Other"],
   "activationEvents": ["onStartupFinished"],
