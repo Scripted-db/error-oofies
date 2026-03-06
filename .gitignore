@@ -1,0 +1,7 @@
+*.log
+.crush
+node_modules/
+out/
+media/
+*.vsix
+.vscode-test/

@@ -1,0 +1,66 @@
+{
+  "name": "error-oofies",
+  "displayName": "Error Oofies",
+  "description": "Plays random sounds on any error, because i was bored.",
+  "version": "1.0.0",
+  "publisher": "ScriptedTS",
+  "engines": { "vscode": "^1.85.0" },
+  "categories": ["Other"],
+  "activationEvents": ["onStartupFinished"],
+  "main": "./out/extension.js",
+  "icon": "icon.jpeg",
+  "contributes": {
+    "commands": [
+      {
+        "command": "errorOofies.playTestSound",
+        "title": "Error Oofies: Play test sound"
+      },
+      {
+        "command": "errorOofies.changeSoundPack",
+        "title": "Error Oofies: Change sound pack"
+      }
+    ],
+    "configuration": {
+      "title": "Error Oofies",
+      "properties": {
+        "errorOofies.soundPack": {
+          "type": "string",
+          "enum": ["pain", "sexy", "halo", "meme"],
+          "default": "pain",
+          "description": "Which sound pack to play on error."
+        },
+        "errorOofies.cooldownMs": {
+          "type": "number",
+          "default": 10,
+          "minimum": 0,
+          "description": "Min ms between plays."
+        },
+        "errorOofies.enabled": {
+          "type": "boolean",
+          "default": true,
+          "description": "Enable/disable error sounds."
+        },
+        "errorOofies.volume": {
+          "type": "number",
+          "default": 0.8,
+          "minimum": 0,
+          "maximum": 1,
+          "description": "Volume (0.0–1.0)."
+        }
+      }
+    }
+  },
+  "scripts": {
+    "vscode:prepublish": "npm run copy-media && npm run compile",
+    "compile": "tsc -p ./",
+    "watch": "tsc -watch -p ./",
+    "copy-media": "node -e \"const fs=require('fs');const p=require('path');const r=process.cwd();['pain','sexy','halo','meme'].forEach(d=>{const src=p.join(r,'audio',d);const dest=p.join(r,'media',d);try{let s;try{s=fs.lstatSync(dest)}catch(_){s=null}if(s){if(s.isSymbolicLink())fs.unlinkSync(dest);else fs.rmSync(dest,{recursive:true})}fs.mkdirSync(dest,{recursive:true});if(fs.existsSync(src))fs.readdirSync(src).forEach(f=>fs.copyFileSync(p.join(src,f),p.join(dest,f)));}catch(e){}})\"",
+    "pack": "npm run copy-media && npx vsce package",
+    "normalize-meme": "node scripts/normalize-meme.js"
+  },
+  "devDependencies": {
+    "@types/node": "^20.10.0",
+    "@types/vscode": "^1.85.0",
+    "typescript": "^5.3.0"
+  }
+}
