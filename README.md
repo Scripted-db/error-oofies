@@ -1,8 +1,10 @@
+<p align="center">
+  <img src="icon.jpeg" width="128" alt="Error Oofies" />
+</p>
+
 # Error Oofies
 
----
-
-Plays a random audio when the editor reports an error (diagnostics or terminal).
+Plays a random sound when the editor reports an error (diagnostics or terminal).
 
 ## FAQ
 
