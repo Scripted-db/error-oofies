@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="icon.jpeg" width="128" alt="Error Oofies" />
+  <img src="icon.png" width="128" alt="Error Oofies" />
 </p>
 
 # Error Oofies

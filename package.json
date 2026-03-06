@@ -2,13 +2,13 @@
   "name": "error-oofies",
   "displayName": "Error Oofies",
   "description": "Plays random sounds on any error, because i was bored.",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "publisher": "ScriptedTS",
   "engines": { "vscode": "^1.85.0" },
   "categories": ["Other"],
   "activationEvents": ["onStartupFinished"],
   "main": "./out/extension.js",
-  "icon": "icon.jpeg",
+  "icon": "icon.png",
   "contributes": {
     "commands": [
       {
